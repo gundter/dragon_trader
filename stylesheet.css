@@ -1,6 +1,6 @@
 .btn {
     display:inline-block;
-    margin: 50px 0px 0px 70px;
+    margin: 1em 0px 0px 2em;
     width: 15%;
     border: 1px solid ;
     text-align: center;
@@ -16,7 +16,7 @@
 #container {
 
     margin: 0 auto 0 auto;
-    width: 80%;
+    width: 100%;
 }
 h1 {
 

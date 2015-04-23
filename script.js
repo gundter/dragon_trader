@@ -14,10 +14,10 @@ var Person = {
 	oranges: [],
 	bananas: [],
 	pears: [],
-	budget: 100
+	budget: 50
 };
 function priceChange(price){
-	price += randomNumber(-50,50)/100;
+	price += randomNumber(-25,25)/100;
 	if (price > 9.99){
 		price = 9.99;
 	}else if (price < .50){
@@ -34,7 +34,7 @@ function avgArray (array){
 	var sum = array.reduce(function(a,b){
 		return a + b;
 	});
-	return sum / array.length;
+	return Math.round((sum / array.length)*100) / 100;
 }
 
 $(document).ready(function(){
@@ -42,7 +42,7 @@ $(document).ready(function(){
 	$("#oranges").append("<br>Price: $<p id='markOr'>" + Market.oranges + "</p>");
 	$("#bananas").append("<br>Price: $<p id='markBa'>" + Market.bananas + "</p>");
 	$("#pears").append("<br>Price: $<p id='markPe'>" + Market.pears + "</p>");
-	$("#userInfo").append("<p>Budget: " +Person.budget + "</p>");
+	$("#userInfo").append("<p>Budget: $" + Person.budget + "</p>");
 
 	setInterval(function(){
 		for (var fruit in Market){
@@ -61,6 +61,7 @@ $(document).ready(function(){
 		}else {
 			Person[this.id].push(Market[this.id]);
 			Person.budget -= Market[this.id];
+			Person.budget = Math.round(Person.budget * 100) / 100;
 			$("#userInfo").html("<p>Budget: $" + Person.budget + "</p><p>Apples: " + Person.apples.length + " at an average price of $" + avgArray(Person.apples) + "</p>" + "<p>Oranges: " + Person.oranges.length + " at an average price of $" + avgArray(Person.oranges) + "</p>" + "<p>Bananas: " + Person.bananas.length + " at an average price of $" + avgArray(Person.bananas) + "</p>" + "<p>Pears: " + Person.pears.length + " at an average price of $" + avgArray(Person.pears) + "</p>");
 		}
 
@@ -71,6 +72,7 @@ $(document).ready(function(){
 		if (Person[fruitId].length > 0){
 			Person[fruitId].shift();
 			Person.budget += Market[fruitId];
+			Person.budget = Math.round(Person.budget * 100) / 100;
 			$("#userInfo").html("<p>Budget: $" + Person.budget + "</p><p>Apples: " + Person.apples.length + " at an average price of $" + avgArray(Person.apples) + "</p>" + "<p>Oranges: " + Person.oranges.length + " at an average price of $" + avgArray(Person.oranges) + "</p>" + "<p>Bananas: " + Person.bananas.length + " at an average price of $" + avgArray(Person.bananas) + "</p>" + "<p>Pears: " + Person.pears.length + " at an average price of $" + avgArray(Person.pears) + "</p>");
 		}else{
 			alert("You can't sell what you don't have!");
