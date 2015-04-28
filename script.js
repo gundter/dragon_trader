@@ -4,24 +4,24 @@ function randomNumber(min, max) {
 
 
 var Market = {
-	apples: randomNumber(50,999)/100,
-	oranges: randomNumber(50,999)/100,
-	bananas: randomNumber(50,999)/100,
-	pears: randomNumber(50,999)/100
+	apples: randomNumber(1000,9999),
+	oranges: randomNumber(1000,9999),
+	bananas: randomNumber(1000,9999),
+	pears: randomNumber(1000,9999)
 };
 var Person = {
 	apples: [],
 	oranges: [],
 	bananas: [],
 	pears: [],
-	budget: 50
+	budget: 50000
 };
 function priceChange(price){
-	price += randomNumber(-25,25)/100;
-	if (price > 9.99){
-		price = 9.99;
-	}else if (price < .50){
-		price = .50;
+	price += randomNumber(-3000,3000);
+	if (price > 9999){
+		price = 9999;
+	}else if (price < 1000){
+		price = 1000;
 	}
 	price = Math.round(price * 100) / 100;
 	return price;
@@ -53,7 +53,7 @@ $(document).ready(function(){
 		$("#markOr").html(Market.oranges);
 		$("#markBa").html(Market.bananas);
 		$("#markPe").html(Market.pears);
-	}, 15000);
+	}, 10000);
 
 		$(".btn").on("click",function (){
 		if (Person.budget - Market[this.id] < 0){
@@ -62,7 +62,7 @@ $(document).ready(function(){
 			Person[this.id].push(Market[this.id]);
 			Person.budget -= Market[this.id];
 			Person.budget = Math.round(Person.budget * 100) / 100;
-			$("#userInfo").html("<p>Budget: $" + Person.budget + "</p><p>Apples: " + Person.apples.length + " at an average price of $" + avgArray(Person.apples) + "</p>" + "<p>Oranges: " + Person.oranges.length + " at an average price of $" + avgArray(Person.oranges) + "</p>" + "<p>Bananas: " + Person.bananas.length + " at an average price of $" + avgArray(Person.bananas) + "</p>" + "<p>Pears: " + Person.pears.length + " at an average price of $" + avgArray(Person.pears) + "</p>");
+			$("#userInfo").html("<p>Budget: $" + Person.budget + "</p><p>Black Dragons: " + Person.apples.length + " at an average price of $" + avgArray(Person.apples) + "</p>" + "<p>Red Dragons: " + Person.oranges.length + " at an average price of $" + avgArray(Person.oranges) + "</p>" + "<p>High Dragons: " + Person.bananas.length + " at an average price of $" + avgArray(Person.bananas) + "</p>" + "<p>Gold Dragons: " + Person.pears.length + " at an average price of $" + avgArray(Person.pears) + "</p>");
 		}
 
 		});
@@ -73,7 +73,7 @@ $(document).ready(function(){
 			Person[fruitId].shift();
 			Person.budget += Market[fruitId];
 			Person.budget = Math.round(Person.budget * 100) / 100;
-			$("#userInfo").html("<p>Budget: $" + Person.budget + "</p><p>Apples: " + Person.apples.length + " at an average price of $" + avgArray(Person.apples) + "</p>" + "<p>Oranges: " + Person.oranges.length + " at an average price of $" + avgArray(Person.oranges) + "</p>" + "<p>Bananas: " + Person.bananas.length + " at an average price of $" + avgArray(Person.bananas) + "</p>" + "<p>Pears: " + Person.pears.length + " at an average price of $" + avgArray(Person.pears) + "</p>");
+			$("#userInfo").html("<p>Budget: $" + Person.budget + "</p><p>Black Dragons: " + Person.apples.length + " at an average price of $" + avgArray(Person.apples) + "</p>" + "<p>Red Dragons: " + Person.oranges.length + " at an average price of $" + avgArray(Person.oranges) + "</p>" + "<p>High Dragons: " + Person.bananas.length + " at an average price of $" + avgArray(Person.bananas) + "</p>" + "<p>Gold Dragons: " + Person.pears.length + " at an average price of $" + avgArray(Person.pears) + "</p>");
 		}else{
 			alert("You can't sell what you don't have!");
 		}
