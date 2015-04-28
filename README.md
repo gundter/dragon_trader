@@ -1,3 +1,11 @@
+#Dragon Trader
+The Fruit Market application has been updated to reflect the Bootswatch theme: _superhero_. The product that you are trading has changed as well. Now you will be buying and selling **dragons**!
+The user's base wallet has changed from $50 to $50000 and the product (dragons) will be assigned a random price ranging from $1000 to $9999. Every 10 seconds the price of each dragon will go up or go down in increments of a random number between $0 to $3000.
+Happy trading and Good Luck!!
+### Disclaimer
+We are not liable for possible injury with handling dragons. Proceed with extreme caution and at your own risk. All sales are final!
+
+#Original Instructions
 # Prime Group jQuery Challenge
 jQuery is great! It allows us to do so many things! You and your group will need to flex everything you know about 
 Javascript and jQuery to tackle this challenge. 
